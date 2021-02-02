@@ -1,0 +1,12 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <main>
+        <h1>List of Tweeter Users</h1>
+        <ul class="userlist">
+
+            {% for user in users %}
+                <li class="username"><a href="{% url 'profile' user.username %}">{{ user.username }}</a></li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}

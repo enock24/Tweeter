@@ -1,0 +1,30 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <main id="profile-main">
+        <div class="profile-container">
+            <div class="info">
+                <img src="{{ user_profile.profile.image.url }}" class="default"></img>
+                <h1>{{ user_profile.username }}</h1>
+                <p>{{ user_profile.profile.description }}</p>
+            </div>
+
+            <div class="buttons">
+                {% if user.username != user_profile.username %}
+                    <button>Follow</button>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="posts-container">
+            {% for tweet in tweets %}
+                {% if tweet.author_id == user_profile.id %}
+                    <div class="post">
+                        <span class="username"><a href="{% url 'profile' user_profile.username %}">{{ tweet.author }}</a></span>
+                        <a class="tweet-link" href="{% url 'tweet-detail' tweet.id %}"><p>{{ tweet.message }}</p></a>
+                        <button>Like</button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </main>
+{% endblock content %}

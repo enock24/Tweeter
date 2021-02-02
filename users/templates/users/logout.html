@@ -1,0 +1,7 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <main>    
+        <h1>Signed out</h1>
+        <p class="form-link"><a href="{% url 'login' %}">Log In Again</a></p>
+    </main>
+{% endblock content %}

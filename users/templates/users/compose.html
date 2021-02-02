@@ -1,0 +1,12 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <main id="compose-main">
+        <h1>Compose Tweet</h1>
+    
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+{% endblock content %}

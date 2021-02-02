@@ -1,0 +1,17 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <main>
+        <h1>Dashboard</h1>
+
+        <div class="posts-container">
+            {% for tweet in tweets %}
+                <div class="post">
+                    <span class="username"><a href="{% url 'profile' tweet.author %}">{{ tweet.author }}</a></span>
+                    <a class="tweet-link" href="{% url 'tweet-detail' tweet.id %}"><p>{{ tweet.message }}</p></a>
+                    <p>{{ tweet.date_posted }}</p>
+                    <button>Like</button>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}

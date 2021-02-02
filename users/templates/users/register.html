@@ -1,0 +1,25 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <main>
+        <h1>Sign up to Tweeter</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
+            <p class="form-link">Aleady have an account? <a href="{% url 'login' %}">Sign in</a></p>
+        </form>
+    </main>
+{% endblock content %}
+
+
+
+<style>
+    button a {
+        color: rgb(15, 70, 170);
+        text-decoration: none;
+    }
+
+    button:hover a {
+        color: white;
+    }
+</style>

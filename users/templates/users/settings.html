@@ -1,0 +1,64 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <main>
+        <h1>Settings</h1>
+        
+        <div class="settings-page">
+            <div class="settings-user">
+                <span class="username">{{ user.username }}</span>
+            </div>
+
+            <div class="settings-container">
+                <div class="setting" id="profile-setting">
+                    <h2>Profile</h2>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ u_form.as_p }}
+                        {{ p_form.as_p }}
+                        <button type="submit">Make changes</button>
+                    </form>
+                </div>
+
+                <!-- <div class="setting" id="password-setting">
+                    <h2>Password</h2>
+
+                    <form method="POST">
+                        <p>
+                            <label>Old Password</label>
+                            <input name="oldpass" type="password"/>
+                        </p>
+
+                        <p>
+                            <label>New Password</label>
+                            <input name="newpass" type="password"/>
+                        </p>
+
+                        <p>
+                            <label>Confirm Password</label>
+                            <input name="confirmpass" type="password"/>
+                        </p>
+
+                        <button>Make changes</button>
+                    </form>
+                </div> -->
+
+
+                <!-- <div class="setting" id="email-setting">
+                    <h2>Email</h2>
+
+                    <form method="POST">
+                            {% csrf_token %}
+                            {{ u_form.as_p }}
+                        <p>
+                            <label>New Email</label>
+                            <input name="newemail" type="text"/>
+                        </p>
+
+                        <button>Make changes</button>
+                    </form>
+                </div> -->
+            </div>
+        </div>
+    </main>
+{% endblock %}
